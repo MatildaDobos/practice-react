@@ -20,9 +20,10 @@ body {
     height: 100%;
   }
   
-  #root {
+  #root, .app, .page {
     min-height: 100%;
     height: 100%;
+    box-sizing: border-box;
   }
   
   .site-width {
@@ -33,15 +34,10 @@ body {
     margin: 0 auto;
   }
 
-  .App {
-    height: 100%;
-    min-height: 100%;
-  }
-
   .m-b-40 {
-    margin-bottom: 40px;
+    padding-bottom: 40px;
   }
 
   .m-t-40 {
-    margin-top: 40px;
+    padding-top: 40px;
   }

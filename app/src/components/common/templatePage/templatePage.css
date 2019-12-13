@@ -1,6 +1,4 @@
-.page {
-  height: 100%; }
-
 .page__wrapper {
   min-height: 100%;
-  padding-bottom: 61px; }
+  padding-bottom: 61px;
+  box-sizing: border-box; }

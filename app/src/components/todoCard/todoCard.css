@@ -29,9 +29,7 @@
 
 .todo-info__name {
   display: inline-block;
-  width: 20%;
-  min-width: 60px; }
+  padding-right: 20px; }
 
 .todo-info__value {
-  display: inline-block;
-  width: 80%; }
+  display: inline-block; }
