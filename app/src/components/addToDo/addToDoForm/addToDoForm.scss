@@ -1,14 +1,15 @@
 @import '../../../styles/colors';
 
-.referral-form {
+.todo-form {
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
     border-radius: 4px;
     border: 1px solid $main-bg-color;
+    margin-bottom: 40px;
 }
 
-.referral-form__title {
+.todo-form__title {
     margin: 0;
     padding: 10px 0;
     font-size: 40px;

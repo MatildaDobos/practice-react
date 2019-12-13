@@ -1,17 +1,12 @@
 import React from 'react';
 import TemplatePage from './components/common/templatePage';
-import AddToDo from './components/addToDo';
-import Todos from './components/todos';
-
+import TodoContainer from './containers/todoContainer';
 
 function App() {
   return (
     <div className="app">
       <TemplatePage>
-        <div className='m-b-40 m-t-40'>
-          <AddToDo />
-        </div>
-        <Todos />
+        <TodoContainer/>
       </TemplatePage>
     </div>
   );
