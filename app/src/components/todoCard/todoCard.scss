@@ -1,0 +1,47 @@
+@import '../../styles/colors';
+
+.todo-info {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid $main-bg-color;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+    background-color: $white;;
+}
+
+.todo-info__header {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.todo-info__header__title {
+    font-size: 24px;
+    color: $title-color;
+    line-height: 40px;
+}
+
+.todo-info__body {
+    border-top: 1px solid $main-bg-color;
+    border-bottom: 1px solid $main-bg-color;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.todo-info__body__description {
+    font-size: 18px;
+}
+
+.todo-info__footer {
+    padding: 10px;
+}
+
+.todo-info__name {
+    display: inline-block;
+    width: 20%;
+    min-width: 60px;
+}
+
+.todo-info__value {
+    display: inline-block;
+    width: 80%;
+}
