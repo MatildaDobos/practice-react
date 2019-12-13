@@ -1,0 +1,21 @@
+.todos__card {
+  width: 100%;
+  padding-bottom: 40px; }
+
+.todos__card {
+  width: 100%;
+  display: inline-block;
+  box-sizing: border-box; }
+  .todos__card:nth-child(2n+1), .todos__card:nth-child(2n) {
+    padding-left: 0;
+    padding-right: 0; }
+
+@media (min-width: 576px) {
+  .todos__card {
+    width: 50%; }
+    .todos__card:nth-child(2n+1) {
+      padding-left: 0;
+      padding-right: 15px; }
+    .todos__card:nth-child(2n) {
+      padding-left: 15px;
+      padding-right: 0; } }

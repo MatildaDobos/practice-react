@@ -1,7 +1,7 @@
 import React from 'react';
 import TemplatePage from './components/common/templatePage';
 import AddToDo from './components/addToDo';
-import ToDoCard from './components/todoCard';
+import Todos from './components/todos';
 
 
 function App() {
@@ -11,9 +11,7 @@ function App() {
         <div className='m-b-40 m-t-40'>
           <AddToDo />
         </div>
-        <div className='m-b-40'>
-          <ToDoCard />
-        </div>
+        <Todos />
       </TemplatePage>
     </div>
   );
