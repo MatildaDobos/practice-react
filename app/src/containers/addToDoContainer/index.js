@@ -18,10 +18,11 @@ const addToDoEnhancer = withFormik({
         description: yup.string()
                     .required('Description is required.')
     }),
-    handleSubmit: (payload, { props, setSubmitting }) => {
+    handleSubmit: (payload, { props, setSubmitting, resetForm }) => {
         const { addToDo } = props;
         addToDo(payload);
         setSubmitting(false);
+        resetForm();
     },
     displayName: 'AddTodoForm',
 })(AddToDoForm);

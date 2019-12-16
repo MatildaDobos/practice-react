@@ -1,22 +1,37 @@
 import { types } from '../actions/todos';
-import Todos from '../utils/todos';
 
+let list = [];
+
+function add(item){
+    const id = list.length+1;
+    list.push({
+        ...item,
+        id
+    });
+};
+
+function remove(id) {
+    let filtered = list.filter((item) => {
+        return item.id === id;
+    });
+    list = filtered;
+};
 
 const initialState = [];
 
 const todos = (state = initialState, action) => {
     switch(action.type) {
         case types.ADD_TODO:
-            Todos.add(action.payload);
+            add(action.payload);
             return {
                 ...state,
-                list: Todos.getList()
+                list: list
             };
         case types.REMOVE_TODO:
-            Todos.remove(action.payload.id);
+            remove(action.payload.id);
             return {
                 ...state,
-                list: Todos.getList()
+                list: list
             };
         default:
             return state;
