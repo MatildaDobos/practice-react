@@ -2,14 +2,28 @@ import React from 'react';
 import TemplatePage from './components/common/templatePage';
 import TodoContainer from './containers/todoContainer';
 import AddToDo from './components/addToDo';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 function App() {
   return (
     <div className="app">
+      <Router>
       <TemplatePage>
-        <AddToDo />
-        <TodoContainer/>
+        <Switch>
+          <Route path="/addtodo">
+            <AddToDo />
+            <TodoContainer/>
+          </Route>
+          <Route path="/">
+            <TodoContainer/>
+          </Route>
+        </Switch>
       </TemplatePage>
+      </Router>
     </div>
   );
 }
