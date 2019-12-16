@@ -1,34 +1,13 @@
 import { types } from '../actions/todos';
 
-let list = [];
-
-function add(item){
-    list.push(item);
-};
-
-function remove(id) {
-    let filtered = list.filter((item) => {
-        return item.id === id;
-    });
-    list = filtered;
-};
-
-const initialState = [];
-
-const todos = (state = initialState, action) => {
+const todos = (state = [], action) => {
     switch(action.type) {
         case types.ADD_TODO:
-            add(action.payload);
-            return {
-                ...state,
-                list: list
-            };
+            return state.concat(action.payload);
         case types.REMOVE_TODO:
-            remove(action.id);
-            return {
-                ...state,
-                list: list
-            };
+            return state.filter((item) => {
+                return item.id !== action.id;
+            });
         default:
             return state;
     }

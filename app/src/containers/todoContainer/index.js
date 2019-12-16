@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 class TodoContainer extends React.Component {
 
     render() {
-        const todoList = this.props.todos.list;
+        const todoList = this.props.todos;
         return (
             <div>
                 <Todos todoList={ todoList } remove={ this.props.removeTodo }/>
