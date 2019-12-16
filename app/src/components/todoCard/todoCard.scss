@@ -5,13 +5,24 @@
     border-radius: 4px;
     border: 1px solid $main-bg-color;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
-    background-color: $white;;
+    background-color: $white;
+    
 }
 
 .todo-info__header {
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
+    position: relative;
+}
+
+.todo-info__header__remove {
+    display: inline-block;
+    width: 25px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
 }
 
 .todo-info__header__title {

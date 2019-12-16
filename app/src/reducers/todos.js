@@ -24,7 +24,7 @@ const todos = (state = initialState, action) => {
                 list: list
             };
         case types.REMOVE_TODO:
-            remove(action.payload.id);
+            remove(action.id);
             return {
                 ...state,
                 list: list

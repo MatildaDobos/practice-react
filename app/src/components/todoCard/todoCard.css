@@ -8,7 +8,16 @@
 .todo-info__header {
   width: 100%;
   padding: 10px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  position: relative; }
+
+.todo-info__header__remove {
+  display: inline-block;
+  width: 25px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer; }
 
 .todo-info__header__title {
   font-size: 24px;

@@ -11,7 +11,7 @@ const Todos = props => {
                 {
                     props.todoList.map(todo => 
                         <div className='todos__card' key={ todo.id }>
-                            <ToDoCard title={ todo.title } description={ todo.description  }/>
+                            <ToDoCard title={ todo.title } description={ todo.description } id={todo.id} remove={ () => props.remove(todo.id) }/>
                         </div>
                     )
                 }
