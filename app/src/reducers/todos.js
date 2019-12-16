@@ -3,11 +3,7 @@ import { types } from '../actions/todos';
 let list = [];
 
 function add(item){
-    const id = list.length+1;
-    list.push({
-        ...item,
-        id
-    });
+    list.push(item);
 };
 
 function remove(id) {

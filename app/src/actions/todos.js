@@ -1,3 +1,4 @@
+let id = 1;
 
 export const types = {
     ADD_TODO: 'ADD_TODO',
@@ -7,7 +8,10 @@ export const types = {
 export const actions = {
     addToDo: list => ({
         type: types.ADD_TODO,
-        payload: list
+        payload: {
+            ...list,
+            id: id++
+        }
     }),
     removeTodo: id => ({
       type: types.REMOVE_TODO,

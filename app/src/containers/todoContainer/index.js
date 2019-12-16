@@ -7,16 +7,17 @@ class TodoContainer extends React.Component {
 
     render() {
         console.log('Todos: ', this.props.todos);
+        const todoList = this.props.todos.list;
         return (
             <div>
-                <Todos todoList={ this.props.todos } />
+                <Todos todoList={ todoList } />
             </div>
         );
     }
 }
 
 const mapStateToProps = state => ({
-    todos: state.todos.list
+    todos: state.todos
 });
 
 const mapDispatchToProps = dispatch => ({
