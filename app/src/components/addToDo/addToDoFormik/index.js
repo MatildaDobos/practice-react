@@ -2,8 +2,11 @@ import React from 'react';
 import * as yup from 'yup';
 import { withFormik } from 'formik';
 import AddToDoForm from '../addToDoForm';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { actions } from '../../../actions/todo';
 
-const AddToDoFormik = withFormik({
+const addToDoEnhancer = withFormik({
     mapPropsToValues(props) {
         return {
             title: props['title'] || '',
@@ -16,12 +19,19 @@ const AddToDoFormik = withFormik({
         description: yup.string()
                     .required('Description is required.')
     }),
-    handleSubmit(values, {setSubmitting}) {
-        console.log('SUBMIT!');
-        setTimeout(() => {
-          setSubmitting(false)
-        },1000)
-    }
+    handleSubmit: (payload, { props, setSubmitting }) => {
+        console.log('Payload: ', payload);
+        console.log('Props: ', props);
+        const { addToDo } = props;
+        addToDo(payload);
+        setSubmitting(false);
+    },
+    displayName: 'AddTodoForm',
 })(AddToDoForm);
 
-export default AddToDoFormik;
+const AddToDoContainer = connect(
+    null,
+    dispatch => bindActionCreators(actions, dispatch)
+)(addToDoEnhancer)
+
+export default AddToDoContainer;

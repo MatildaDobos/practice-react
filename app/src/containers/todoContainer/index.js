@@ -22,11 +22,15 @@ class TodoContainer extends React.Component {
         };
     }
 
+    addToDo = (values) => {
+        console.log(values);
+    };
+
     render() {
         return (
             <div>
                 <AddToDo todoList={ this.state.todoList } />
-                <Todos todoList={ this.state.todoList }/>
+                <Todos todoList={ this.state.todoList } addToDo={this.addToDo}/>
             </div>
         );
     }
