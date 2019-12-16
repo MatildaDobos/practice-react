@@ -1,39 +1,26 @@
 import React from 'react';
 import Todos from '../../components/todos';
-import AddToDo from '../../components/addToDo';
+import { connect } from 'react-redux';
+import { actions } from '../../actions/todos';
 
 class TodoContainer extends React.Component {
-    
-    constructor(props) {
-        super(props);
-        this.state = {
-            todoList: [
-                {
-                    id: 1,
-                    title : 'To do 1',
-                    description: 'To do 1 descr'
-                },
-                {
-                    id:2,
-                    title : 'To do 2',
-                    description: 'To do 2 descr'
-                }
-            ]
-        };
-    }
-
-    addToDo = (values) => {
-        console.log(values);
-    };
 
     render() {
+        console.log('Todos: ', this.props.todos);
         return (
             <div>
-                <AddToDo todoList={ this.state.todoList } />
-                <Todos todoList={ this.state.todoList } addToDo={this.addToDo}/>
+                <Todos todoList={ this.props.todos } />
             </div>
         );
     }
 }
 
-export default TodoContainer;
+const mapStateToProps = state => ({
+    todos: state.todos.list
+});
+
+const mapDispatchToProps = dispatch => ({
+    removeTodo: id => dispatch(actions.removeTodo(id))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoContainer);

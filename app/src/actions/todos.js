@@ -6,7 +6,11 @@ export const types = {
 
 export const actions = {
     addToDo: list => ({
-      type: types.ADD_TODO,
-      payload: list
+        type: types.ADD_TODO,
+        payload: list
+    }),
+    removeTodo: id => ({
+      type: types.REMOVE_TODO,
+      id: id
     })
 };
