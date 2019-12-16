@@ -6,7 +6,6 @@ import { actions } from '../../actions/todos';
 class TodoContainer extends React.Component {
 
     render() {
-        console.log('Todos: ', this.props.todos);
         const todoList = this.props.todos.list;
         return (
             <div>

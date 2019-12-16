@@ -5,8 +5,6 @@ import './todos.css';
 
 const Todos = props => {
     const hasTodos = props.todoList != undefined && props.todoList.length > 0;
-    console.log('props.todoList: ', props.todoList);
-    console.log('hasTodos: ', hasTodos);
     if(hasTodos) {
         return (
             <div className='todos'>
