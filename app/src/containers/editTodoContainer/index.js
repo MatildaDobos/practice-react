@@ -5,9 +5,10 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { actions } from '../../actions/todos';
 
-const addToDoEnhancer = withFormik({
+const editToDoEnhancer = withFormik({
     mapPropsToValues(props) {
         return {
+            id: props['id'],
             title: props['title'] || '',
             description: props['description'] || ''
         };
@@ -18,18 +19,20 @@ const addToDoEnhancer = withFormik({
         description: yup.string()
                     .required('Description is required.')
     }),
-    handleSubmit: (payload, { props, setSubmitting, resetForm }) => {
-        const { addToDo } = props;
-        addToDo(payload);
+    handleSubmit: (payload, { props, setSubmitting }) => {
+        const { editToDo } = props;
+        editToDo(payload);
         setSubmitting(false);
-        resetForm();
     },
-    displayName: 'AddTodoForm',
+    displayName: 'EditTodoForm',
 })(ToDoForm);
 
-const AddToDoContainer = connect(
-    null,
-    dispatch => bindActionCreators(actions, dispatch)
-)(addToDoEnhancer)
+const mapStateToProps = (state, ownProps) => {
+    const { id } = ownProps
+    const todo = state.todos.find(x => x.id == id);
+    return todo;
+};
 
-export default AddToDoContainer;
+const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(editToDoEnhancer);

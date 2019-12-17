@@ -8,6 +8,16 @@ const todos = (state = [], action) => {
             return state.filter((item) => {
                 return item.id !== action.id;
             });
+            case types.EDIT_TODO:
+                const updateState = state;
+                updateState.forEach((item, index) => {
+                    if(item.id == action.payload.id) {
+                        updateState[index] = action.payload
+                        return;
+                    }
+                });
+                
+                return updateState;
         default:
             return state;
     }

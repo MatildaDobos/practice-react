@@ -17,7 +17,7 @@ const TodoPageContainer = (props) => {
         const todo = todoFilter[0];
         return (
             <div>
-                <TodoPage title={ todo.title } description={ todo.description } id={id} remove={ () => todo.remove(id) } />
+                <TodoPage id={ id }/>
             </div>
         );
     }

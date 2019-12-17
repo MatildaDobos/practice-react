@@ -1,11 +1,10 @@
 import React from 'react';
-import ToDoCard from '../todoCard';
+import EditToDoContainer from '../../containers/editTodoContainer';
 
-const TodoPage = (props) => {
+const TodoPage = props => {
     return (
        <div>
-            <div>This is the todo page</div>
-            <ToDoCard title={ props.title } description={ props.description } id={props.id}/>
+            <EditToDoContainer id={props.id}/>
        </div>
     );
     
