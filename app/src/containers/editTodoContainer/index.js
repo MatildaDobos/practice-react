@@ -29,7 +29,7 @@ const editToDoEnhancer = withFormik({
 
 const mapStateToProps = (state, ownProps) => {
     const { id } = ownProps
-    const todo = state.todos.find(x => x.id == id);
+    const todo = state.todos.find(x => x.id === id);
     return todo;
 };
 

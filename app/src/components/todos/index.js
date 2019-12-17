@@ -4,7 +4,7 @@ import ToDoCard from '../todoCard';
 import './todos.css';
 
 const Todos = props => {
-    const hasTodos = props.todoList != undefined && props.todoList.length > 0;
+    const hasTodos = props.todoList !== undefined && props.todoList.length > 0;
     if(hasTodos) {
         return (
             <div className='todos'>

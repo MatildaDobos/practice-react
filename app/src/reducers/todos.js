@@ -11,7 +11,7 @@ const todos = (state = [], action) => {
             case types.EDIT_TODO:
                 const updateState = state;
                 updateState.forEach((item, index) => {
-                    if(item.id == action.payload.id) {
+                    if(item.id === action.payload.id) {
                         updateState[index] = action.payload
                         return;
                     }

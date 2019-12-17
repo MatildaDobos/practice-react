@@ -7,14 +7,13 @@ import { actions } from '../../actions/todos';
 
 const TodoPageContainer = (props) => {
     const params = useParams();
-    const id = params['number'];
+    const id = parseInt(params['number']);
 
     const todoFilter = props.todos.filter( item => {
-        return item.id == id;
+        return item.id === id;
     });
 
     if(todoFilter.length > 0) {
-        const todo = todoFilter[0];
         return (
             <div>
                 <TodoPage id={ id }/>
