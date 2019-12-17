@@ -5,13 +5,21 @@ import './todos.css';
 
 const Todos = props => {
     const hasTodos = props.todoList !== undefined && props.todoList.length > 0;
+    console.log('Todos: ', props);
     if(hasTodos) {
         return (
             <div className='todos'>
                 {
                     props.todoList.map(todo => 
                         <div className='todos__card' key={ todo.id }>
-                            <ToDoCard title={ todo.title } description={ todo.description } id={todo.id} remove={ () => props.remove(todo.id) }/>
+                            <ToDoCard 
+                                title={ todo.title } 
+                                description={ todo.description } 
+                                id={todo.id} 
+                                remove={ () => props.remove(todo.id) }
+                                onStatusChange={ props.updateStatus }
+                                status={ todo.status }
+                            />
                         </div>
                     )
                 }

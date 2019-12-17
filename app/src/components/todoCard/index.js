@@ -1,11 +1,23 @@
 import React from 'react';
 import removeIcon from '../../img/remove_icon.svg';
 import { Link } from 'react-router-dom';
+import Select from 'react-select';
 
 import './todoCard.css';
 
-const ToDoCard = props => (
-    
+const todoStatusOptions = [
+    { value: 'todo', label: 'To do' },
+    { value: 'inprogress', label: 'In progress' },
+    { value: 'done', label: 'Done' }
+];
+
+const ToDoCard = props => {
+    console.log('ToDoCard: ', todoStatusOptions);
+    let status = todoStatusOptions[0];
+    if (props.status) {
+        status = todoStatusOptions.find(x => x.value === props.status);
+    }
+    return (
         <div className='todo-info'>
             <div className='todo-info__header'>
                 <Link to={`/todo/${props.id}`}>
@@ -18,11 +30,17 @@ const ToDoCard = props => (
                 <p className='todo-info__body__description'>{ props.description }</p>
             </div>
             <div className='todo-info__footer'>
-                <span className='todo-info__name'>Created:</span>
-                <span className='todo-info__value'>28 May 2019</span>
+                <div className='todo-info__name'>Status: </div>
+                <div className='todo-info__value'>
+                    <Select 
+                        value={ status } 
+                        onChange={ (selectedOption) => props.onStatusChange(props.id, selectedOption.value) } 
+                        options={ todoStatusOptions } 
+                    />
+                </div>
             </div>
         </div>
-    
-);
+    );
+};
 
 export default ToDoCard;

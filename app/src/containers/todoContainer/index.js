@@ -8,7 +8,7 @@ const TodoContainer = props => {
     const todoList = props.todos;
     return (
         <div>
-            <Todos todoList={ todoList } remove={ props.removeTodo }/>
+            <Todos todoList={ todoList } remove={ props.removeTodo } updateStatus={ props.updateStatus }/>
         </div>
     );
 }

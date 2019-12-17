@@ -9,7 +9,7 @@ const todos = (state = [], action) => {
                 return item.id !== action.id;
             });
             case types.EDIT_TODO:
-                const updateState = state;
+                const updateState = Array.from(state);
                 updateState.forEach((item, index) => {
                     if(item.id === action.payload.id) {
                         updateState[index] = action.payload
@@ -18,6 +18,16 @@ const todos = (state = [], action) => {
                 });
                 
                 return updateState;
+        case types.UPDATE_STATUS_TODO:
+                const updateStatusState = Array.from(state);
+                updateStatusState.forEach((item, index) => {
+                    if(item.id === action.id) {
+                        updateStatusState[index].status = action.status
+                        return;
+                    }
+                });
+                
+                return updateStatusState;
         default:
             return state;
     }
