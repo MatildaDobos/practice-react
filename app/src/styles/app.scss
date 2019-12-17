@@ -19,6 +19,11 @@ body {
     min-height: 100%;
     height: 100%;
   }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
   
   #root, .app, .page {
     min-height: 100%;
