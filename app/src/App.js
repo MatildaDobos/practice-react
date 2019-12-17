@@ -2,7 +2,7 @@ import React from 'react';
 import TemplatePage from './components/common/templatePage';
 import TodoContainer from './containers/todoContainer';
 import AddToDo from './components/addToDo';
-import TodoPage  from './components/todoPage';
+import TodoPageContainer  from './containers/todoPageContainer';
 import {
   BrowserRouter as Router,
   Switch,
@@ -20,7 +20,7 @@ function App() {
             <TodoContainer/>
           </Route>
           <Route path="/todo/:number">
-            <TodoPage/>
+            <TodoPageContainer/>
           </Route>
           <Route path="/">
             <TodoContainer/>

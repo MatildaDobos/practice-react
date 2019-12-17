@@ -1,11 +1,12 @@
 import React from 'react';
-import { useParams } from "react-router-dom";
+import ToDoCard from '../todoCard';
 
 const TodoPage = (props) => {
-    //use global state from store
-    const id = useParams();
     return (
-        <div>This is the todo page</div>
+       <div>
+            <div>This is the todo page</div>
+            <ToDoCard title={ props.title } description={ props.description } id={props.id}/>
+       </div>
     );
     
 };
