@@ -46,6 +46,13 @@
     padding: 10px;
 }
 
+.todo-info__footer__status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
 .todo-info__name {
     display: inline-block;
     padding-right: 20px;
@@ -53,5 +60,16 @@
 
 .todo-info__value {
     display: inline-block;
-    width: 200px;
+    width: 100%;
+    justify-self: stretch;
+}
+
+.todo-info__footer__link {
+    width: 100%;
+    font-size: 18px;
+    color: $white;
+    background-color: $main-color;
+    line-height: 40px;
+    border-radius: 4px;
+    text-align: center;
 }
