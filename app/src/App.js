@@ -3,6 +3,7 @@ import TemplatePage from './components/common/templatePage';
 import TodoContainer from './containers/todoContainer';
 import AddToDoContainer from './containers/addToDoContainer';
 import TodoPageContainer  from './containers/todoPageContainer';
+import HomePageContainer from './containers/homePageContainer';
 import {
   BrowserRouter as Router,
   Switch,
@@ -23,7 +24,7 @@ function App() {
             <TodoPageContainer/>
           </Route>
           <Route path="/">
-            <TodoContainer/>
+            <HomePageContainer/>
           </Route>
         </Switch>
       </TemplatePage>
