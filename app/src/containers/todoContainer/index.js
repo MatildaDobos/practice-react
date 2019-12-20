@@ -4,13 +4,19 @@ import { connect } from 'react-redux';
 import { actions } from '../../actions/todos';
 import { bindActionCreators } from 'redux';
 
-const TodoContainer = props => {
-    const todoList = props.todos;
+class TodoContainer extends React.Component {
+    componentDidMount() {
+        this.props.getTodos();
+    }
+    
+    render() {
+        const todoList = this.props.todos.list;
     return (
         <div>
-            <Todos todoList={ todoList } remove={ props.removeTodo } updateStatus={ props.updateStatus }/>
+            <Todos todoList={ todoList } remove={ this.props.removeTodo } updateStatus={ this.props.updateStatus }/>
         </div>
     );
+    }
 }
 
 const mapStateToProps = state => ({

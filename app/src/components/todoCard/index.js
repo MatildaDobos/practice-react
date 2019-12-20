@@ -12,7 +12,6 @@ const todoStatusOptions = [
 ];
 
 const ToDoCard = props => {
-    console.log('ToDoCard: ', todoStatusOptions);
     let status = todoStatusOptions[0];
     if (props.status) {
         status = todoStatusOptions.find(x => x.value === props.status);

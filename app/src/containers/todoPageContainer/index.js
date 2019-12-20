@@ -9,7 +9,7 @@ const TodoPageContainer = (props) => {
     const params = useParams();
     const id = parseInt(params['number']);
 
-    const todoFilter = props.todos.filter( item => {
+    const todoFilter = props.todos.list.filter( item => {
         return item.id === id;
     });
 

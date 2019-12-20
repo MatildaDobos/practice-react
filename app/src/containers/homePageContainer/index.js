@@ -10,8 +10,8 @@ class HomePageContainer extends React.Component {
     }
 
     render() {
-        const todoList = this.props.todoRequest.list;
-        console.log('TodoREquestList: ', this.props.todoRequest.list);
+        const todoList = this.props.todos.list;
+        console.log('TodoREquestList: ', this.props.todos.list);
         return (
             <div>
             <Todos todoList={ todoList } remove={ this.props.removeTodo } updateStatus={ this.props.updateStatus }/>
@@ -21,7 +21,7 @@ class HomePageContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    todoRequest: state.todoRequest
+    todos: state.todos
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);

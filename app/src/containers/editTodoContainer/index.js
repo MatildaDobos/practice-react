@@ -28,8 +28,9 @@ const editToDoEnhancer = withFormik({
 })(ToDoForm);
 
 const mapStateToProps = (state, ownProps) => {
-    const { id } = ownProps
-    const todo = state.todos.find(x => x.id === id);
+    const { id } = ownProps;
+    console.log('Edit to do: ', state.todos.list);
+    const todo = state.todos.list.find(x => x.id === id);
     return todo;
 };
 

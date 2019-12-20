@@ -24,7 +24,7 @@ function App() {
             <TodoPageContainer/>
           </Route>
           <Route path="/">
-            <HomePageContainer/>
+            <TodoContainer/>
           </Route>
         </Switch>
       </TemplatePage>
