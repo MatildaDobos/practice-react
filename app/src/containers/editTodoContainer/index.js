@@ -21,8 +21,8 @@ const EditToDoEnhancer = withFormik({
                     .required('Description is required.')
     }),
     handleSubmit: (payload, { props, setSubmitting }) => {
-        const { editToDo } = props;
-        editToDo(payload);
+        const { updateToDo } = props;
+        updateToDo(payload);
         setSubmitting(false);
     },
     displayName: 'EditTodoForm',
@@ -37,7 +37,12 @@ class EditTodoContainer extends React.Component {
         if(this.props.todo) {
             return (
                 <div>
-                    <EditToDoEnhancer id={ this.props.id } title={ this.props.todo.title } description={ this.props.todo.description } />
+                    <EditToDoEnhancer 
+                        id={ this.props.id } 
+                        title={ this.props.todo.title } 
+                        description={ this.props.todo.description }
+                        updateToDo={ this.props.updateToDo }
+                    />
                 </div>
             );
         }
@@ -51,7 +56,7 @@ class EditTodoContainer extends React.Component {
 const mapStateToProps = (state, ownProps) => {
     const { id } = ownProps;
     return {
-        todo: state.todos.item,
+        todo: state.todo.item,
         id: id
     };
 };

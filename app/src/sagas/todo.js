@@ -31,9 +31,9 @@ export function* saveTodo() {
     }
 }
 
-export function* updateTodo() {
+export function* updateTodo(action) {
     try {
-        yield call(TodoApi.updateTodo);
+        yield call(TodoApi.updateTodo, action.payload);
         yield put({ type: types.UPDATE_TODO_REQUEST_SUCCESS });
     } catch (error) {
         yield put({ type: types.UPDATE_TODO_REQUEST_FAILURE });

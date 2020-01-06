@@ -41,10 +41,6 @@ export const actions = {
             status: ''
         }
     }),
-    editToDo: list => ({
-        type: types.EDIT_TODO,
-        payload: list
-    }),
     removeTodo: id => ({
       type: types.REMOVE_TODO,
       id: id
@@ -53,5 +49,9 @@ export const actions = {
         type: types.UPDATE_STATUS_TODO,
         id: id,
         status: status
-      })
+      }),
+    updateToDo: todo => ({
+        type: types.UPDATE_TODO_REQUEST,
+        payload: todo
+    })
 };
