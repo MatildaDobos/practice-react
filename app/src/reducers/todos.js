@@ -21,19 +21,19 @@ const todos = (state = initialState, action) => {
                 ...state,
                 list: updateList
             };
-            case types.EDIT_TODO:
-                const updateState = Array.from(state.list);
-                updateState.forEach((item, index) => {
-                    if(item.id === action.payload.id) {
-                        updateState[index] = action.payload
-                        return;
-                    }
-                });
-                
-                return {
-                  ...state,
-                  list: updateState  
-                };
+        case types.EDIT_TODO:
+            const updateState = Array.from(state.list);
+            updateState.forEach((item, index) => {
+                if(item.id === action.payload.id) {
+                    updateState[index] = action.payload
+                    return;
+                }
+            });
+            
+            return {
+                ...state,
+                list: updateState  
+            };
         case types.UPDATE_STATUS_TODO:
                 const updateStatusState = Array.from(state.list);
                 updateStatusState.forEach((item, index) => {
@@ -68,6 +68,27 @@ const todos = (state = initialState, action) => {
                     error: true,
                     loading: false
                 };
+        case types.GET_TODO_ITEM_REQUEST:
+            return {
+                ...state,
+                item: null,
+                error: false,
+                loading: true
+            };
+        case types.GET_TODO_ITEM_REQUEST_SUCCESS:
+            return {
+                ...state,
+                item: action.payload,
+                error: false,
+                loading: false
+            };
+        case types.GET_TODO_ITEM_REQUEST_FAILURE:
+            return {
+                ...state,
+                item: null,
+                error: true,
+                loading: false
+            };
         default:
             return state;
     }

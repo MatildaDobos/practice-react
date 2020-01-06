@@ -1,6 +1,6 @@
 import TodoApi from '../api/todo';
-import { call, put, takeLatest } from 'redux-saga/effects';
-import { types } from '../actions/todos';
+import { call, put, take } from 'redux-saga/effects';
+import { types, actions } from '../actions/todos';
 
 
 export function* getTodos() {
@@ -13,9 +13,9 @@ export function* getTodos() {
 }
 
 
-export function* getTodoItem() {
+export function* getTodoItem(action) {
     try {
-        const todo = yield call(TodoApi.getTodoById);
+        const todo = yield call(TodoApi.getTodoById, action.payload);
         yield put({ type: types.GET_TODO_ITEM_REQUEST_SUCCESS, payload:  todo });
     } catch (error) {
         yield put({ type: types.GET_TODO_ITEM_REQUEST_FAILURE });

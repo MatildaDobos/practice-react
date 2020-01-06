@@ -1,3 +1,4 @@
+import React from 'react';
 import * as yup from 'yup';
 import { withFormik } from 'formik';
 import ToDoForm from '../../components/toDoForm';
@@ -5,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { actions } from '../../actions/todos';
 
-const editToDoEnhancer = withFormik({
+const EditToDoEnhancer = withFormik({
     mapPropsToValues(props) {
         return {
             id: props['id'],
@@ -27,13 +28,34 @@ const editToDoEnhancer = withFormik({
     displayName: 'EditTodoForm',
 })(ToDoForm);
 
+class EditTodoContainer extends React.Component {
+    componentDidMount() {
+        this.props.getTodoItem(this.props.id);
+    }
+
+    render() {
+        if(this.props.todo) {
+            return (
+                <div>
+                    <EditToDoEnhancer id={ this.props.id } title={ this.props.todo.title } description={ this.props.todo.description } />
+                </div>
+            );
+        }
+        return (
+            <div>To do with id { this.props.id } is not found</div>
+        );
+       
+    }
+}
+
 const mapStateToProps = (state, ownProps) => {
     const { id } = ownProps;
-    console.log('Edit to do: ', state.todos.list);
-    const todo = state.todos.list.find(x => x.id === id);
-    return todo;
+    return {
+        todo: state.todos.item,
+        id: id
+    };
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(editToDoEnhancer);
+export default connect(mapStateToProps, mapDispatchToProps)(EditTodoContainer);

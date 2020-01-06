@@ -9,19 +9,10 @@ const TodoPageContainer = (props) => {
     const params = useParams();
     const id = parseInt(params['number']);
 
-    const todoFilter = props.todos.list.filter( item => {
-        return item.id === id;
-    });
-
-    if(todoFilter.length > 0) {
-        return (
-            <div>
-                <TodoPage id={ id }/>
-            </div>
-        );
-    }
     return (
-        <div>To do with id { id } is not found</div>
+        <div>
+            <TodoPage id={ id }/>
+        </div>
     );
     
 };

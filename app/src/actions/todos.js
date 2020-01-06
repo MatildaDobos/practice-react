@@ -29,6 +29,10 @@ export const actions = {
         type: types.GET_TODO_REQUEST,
         payload: list
     }),
+    getTodoItem: id => ({
+        type: types.GET_TODO_ITEM_REQUEST,
+        payload: id
+    }),
     addToDo: list => ({
         type: types.ADD_TODO,
         payload: {
