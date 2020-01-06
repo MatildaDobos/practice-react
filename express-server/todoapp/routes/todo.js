@@ -24,7 +24,7 @@ router.get('/:id', function(req, res) {
             return console.log(err);
         }
         var json = JSON.parse(data);
-        var todo = json.find(x => x.id === req.params.id);
+        var todo = json.find(x => parseInt(x.id) === parseInt(req.params.id));
         res.send(todo);
     })
 });
